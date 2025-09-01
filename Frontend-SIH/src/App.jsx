@@ -1,9 +1,10 @@
-import Header from "./components/Header.jsx"
-import Card from "./components/Card.jsx";
-import "./styles/Header.css"
+import Course from "./pages/CouseListMedi.jsx"
+
 function App() {
   return (
-   <></> );
+   <>
+   <Course></Course>
+   </> );
 }
 
 export default App;
