@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Test Result</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      #resultBox ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+      #restartTest {
+        background-color: #cc5500; /* burnt orange */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      #restartTest:hover {
+        background-color: #ff6f31;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Career Test Result</h1>
+      <div id="resultBox"></div>
+      <!-- Restart button will be added by JS -->
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      const resultBox = document.getElementById("resultBox");
+      const scores = JSON.parse(localStorage.getItem("finalScores") || "{}");
+
+      if (Object.keys(scores).length > 0) {
+        let sortedFields = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+        let bestField = sortedFields[0][0];
+
+        const suggestions = {
+          science: [
+            "Biology (MBBS, BDS, Nursing)",
+            "Computer Science (B.Tech IT/CS)",
+            "Pure Science (B.Sc Physics/Chemistry/Maths)",
+          ],
+          arts: ["History", "Literature", "Psychology", "Political Science"],
+          commerce: [
+            "Accounting",
+            "Finance",
+            "Business Administration",
+            "Economics",
+          ],
+          diploma: [
+            "Diploma in IT",
+            "Mechanical Engineering",
+            "Electrical Engineering",
+            "Civil Engineering",
+          ],
+        };
+
+        let suggestionsHTML =
+          "<h3>Career Path Suggestions (Interest + Aptitude)</h3><ul>";
+        sortedFields.forEach(([field, score]) => {
+          suggestionsHTML += `<li><strong>${field.toUpperCase()}</strong> → Score: ${score}`;
+          if (suggestions[field]) {
+            suggestionsHTML += `<br><em>Suggested Courses:</em> ${suggestions[
+              field
+            ].join(", ")}`;
+          }
+          suggestionsHTML += "</li><br>";
+        });
+        suggestionsHTML += "</ul>";
+
+        resultBox.innerHTML = `
+        <h2>Your Top Recommended Path:</h2>
+        <p style="font-size:1.2em;"><strong>${bestField.toUpperCase()}</strong></p>
+        ${suggestionsHTML}
+        <button id="restartTest">Restart Test</button>
+    `;
+      }
+
+      // Restart Test functionality
+      document.addEventListener("click", function (e) {
+        if (e.target && e.target.id === "restartTest") {
+          localStorage.clear();
+          window.location.href = "/sih/streams.html";
+        }
+      });
+    </script>
+  </body>
+</html>

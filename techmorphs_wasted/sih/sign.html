@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - LearnAhead</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo" style="border-radius: 50%" />
+        <span>LearnAhead</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Colleges</a></li>
+          <li><a href="#">Contact</a></li>
+          <!-- <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html" class="active">Signup</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="form-section">
+      <div class="form-container">
+        <h2>Create Account</h2>
+        <form>
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <input type="password" placeholder="Confirm Password" required />
+          <!-- <button type="submit">Signup</button> -->
+          <button type="button" onclick="window.location.href='dashboard.html'">
+            Signup
+          </button>
+          <p>Already have an account? <a href="login.html">Login here</a></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>LearnAhead</h3>
+          <p>
+            Helping students choose the right subject, degree, and career path
+            through personalized digital guidance.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Colleges</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Email: info@advisor.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LearnAhead | All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
